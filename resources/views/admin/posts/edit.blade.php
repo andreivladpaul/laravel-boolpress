@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-12">
         <h1>Modify post</h1>
-        <form action="{{ route('posts.update',$post->id) }}" method="post">
+        <form action="{{ route('admin.posts.update',$post->id) }}" method="post">
             @method('PUT')
             @csrf
             <div class="form-group">
@@ -21,7 +21,7 @@
             <br>
             <div class="row">
                 <div class="col-12 form-group">
-                    <button class="btn btn-success" href="{{ route('posts.create') }}">Submit</button>
+                    <button class="btn btn-success" href="{{ route('admin.posts.create') }}">Submit</button>
                 </div>
             </div>
 

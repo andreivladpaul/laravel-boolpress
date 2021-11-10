@@ -34,7 +34,7 @@ Auth::routes();
 
          //Admin Routes
 Route::namespace('Admin')->namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/home','HomeController@index')->name('home');
+    Route::get('/home','HomeController@index');
 
     Route::resource('/posts','PostController');
 /*  Route::resource('admin/tag','TagController');

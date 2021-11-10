@@ -2,12 +2,13 @@
 
 @section('content')
 
-    @include('layouts.status')
+    {{-- Error Messagges --}}
     @include('layouts.messages')
+
 <div class="row">
     <div class="col-12">
         <h1>Write a New Post</h1>
-        <form action="{{ route('posts.store') }}" method="post">
+        <form action="{{ route('admin.posts.store') }}" method="post">
             @method('POST')
             @csrf
             <div class="form-group">
@@ -22,7 +23,7 @@
             <br>
             <div class="row">
                 <div class="col-12 form-group">
-                    <button class="btn btn-success" href="{{ route('posts.create') }}">Submit</button>
+                    <button class="btn btn-success" href="{{ route('admin.posts.index') }}">Submit</button>
                 </div>
             </div>
 

@@ -60,7 +60,7 @@ class PostController extends Controller
         $new_post->slug = $slug;
         $new_post->save();
 
-        return redirect(route('posts.index'))->with('status', 'The post has been added');
+        return redirect(route('admin.posts.index'))->with('status', 'The post has been added');
     }
 
     /**
@@ -124,7 +124,7 @@ class PostController extends Controller
         };
         $post->update($form_data);
 
-        return redirect()->route('posts.index')->with('status','Post has been updated');
+        return redirect()->route('admin.posts.index')->with('status','Post has been updated');
     }
 
     /**

@@ -64,17 +64,6 @@ section {
   display: block;
 }
 
-header {
-    height: 400px;
-    background-size: cover;
-    background-position: top-center;
-    color: white;
-}
-
-header  h1 {
-    font-size: 80px;
-}
-
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
