@@ -47,7 +47,8 @@ class PostController extends Controller
         $this->validate($request,[
             'title'=>'required',
             'content'=>'required',
-            'category_id'=>'nullable|exists:categories,id'
+            'category_id'=>'nullable|exists:categories,id',
+            'tags'=> 'exists:tags,id'
         ]);
 
         $new_post = new Post;
@@ -64,6 +65,8 @@ class PostController extends Controller
         }
         $new_post->slug = $slug;
         $new_post->save();
+
+        $new_post->tags()->attach($form_data['tags']);
 
         return redirect(route('admin.posts.index'))->with('status', 'The post has been added');
     }
@@ -136,13 +139,14 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Post $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        post::where('id',$id)->delete();
-        return redirect()->back()->with('status','Post has been deleted');
+        $post->delete();
+        $post->tags()->detach($post->id);
+        return redirect()->route('admin.posts.index')->with('status','Post has been deleted');
 
     }
 }

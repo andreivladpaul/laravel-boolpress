@@ -46,7 +46,7 @@
                         class="btn btn-warning">
                         Modify
                     </a>
-                    <form class="d-inline-block delete-post" method="post" action="{{ route('admin.posts.destroy', $post->id) }}">
+                    <form class="d-inline-block delete-post" method="post" action="{{ route('admin.posts.destroy', $post) }}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" >Delete</button>
