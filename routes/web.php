@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('index');
+Route::get('/', 'HomeController@index');
 Route::resource('/posts', 'PostController');
 
 
@@ -37,6 +37,7 @@ Route::namespace('Admin')->namespace('Admin')->prefix('admin')->name('admin.')->
     Route::get('/home','HomeController@index');
 
     Route::resource('/posts','PostController');
+    Route::resource('/categories','CategoryController');
 /*  Route::resource('admin/tag','TagController');
     Route::resource('admin/category','CategoryController');
     Route::resource('admin/user','UserController'); */

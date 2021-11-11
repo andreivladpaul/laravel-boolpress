@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Post;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin;
 
-class PostController extends Controller
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Category;
+
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        /* $posts = Post::all();
-        return view('guest.posts.index', compact('posts')); */
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -46,11 +48,11 @@ class PostController extends Controller
      */
     public function show($slug)
     {
-        $post = Post::where('slug',$slug)->first();
-        if(!$post) {
+        $category = Category::where('slug',$slug)->first();
+        if(!$category) {
             abort(404);
         }
-        return view('guest.posts.show', compact('post'));
+        return view('admin.categories.show', compact('category'));
     }
 
     /**

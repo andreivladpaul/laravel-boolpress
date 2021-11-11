@@ -18,6 +18,19 @@
                 <label for="content">Content</label>
                 <textarea type="text" class="form-control" name="content" id="content" >{{ ($post->content) }}</textarea>
             </div>
+
+            <div class="form-group">
+                <label for="category_id">Category</label>
+                <select name="category_id" id="category_id">
+                    <option value="">--  Select category --</option>
+
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}"
+                            {{ old('category_id', $category->id) == $category->id ? 'selected' : null }}> {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
             <br>
             <div class="row">
                 <div class="col-12 form-group">
