@@ -24,6 +24,7 @@
         <th scope="col">Title</th>
         <th scope="col">Slug</th>
         <th scope="col">Category</th>
+        <th scope="col">N. Tags</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -37,6 +38,11 @@
                 <td>
                     @if ($post->category)
                     {{ $post->category->name }}
+                    @endif
+                </td>
+                <td>
+                    @if ($post->tags)
+                    {{ count($post->tags) }}
                     @endif
                 </td>
 

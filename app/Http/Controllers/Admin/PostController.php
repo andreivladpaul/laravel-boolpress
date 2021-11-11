@@ -94,9 +94,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $tags = Tag::all();
         $categories = Category::all();
         $post = post::where('id',$id)->first();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -132,6 +133,13 @@ class PostController extends Controller
 
         };
         $post->update($form_data);
+
+        if(array_key_exists('tags',$form_data)) {
+            $post->tags()->sync($form_data['tags']);
+        } else {
+            $post->tags()->sync([]);
+        }
+
 
         return redirect()->route('admin.posts.index')->with('status','Post has been updated');
     }
