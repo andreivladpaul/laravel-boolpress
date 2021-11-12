@@ -6,8 +6,6 @@
 
 
 @section('content')
-    @foreach ($posts as $post)
-
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -24,12 +22,7 @@
                             <!-- Divider-->
                             <hr class="my-4" />
                         @endforeach
-
-
                     </div>
                 </div>
             </div>
-
-    @endforeach
-
 @endsection
